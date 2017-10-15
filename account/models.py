@@ -184,7 +184,7 @@ class Profile(models.Model):
 	language = models.CharField(_('Choose Language'), max_length=3, choices=LANGUAGES, blank=True, null=True)
 	country = models.CharField(_('Choose Country'), max_length=2, choices=COUNTRIES, blank=True, null=True)
 	location = models.CharField(_('Location'), max_length=140, blank=True, null=True)
-	gender = models.CharField(_('Gender'), max_length=1, choices=GENDER_CHOICES)
+	gender = models.CharField(_('Gender'), max_length=1, default='n', choices=GENDER_CHOICES)
 
 	public_mail = models.EmailField(blank=True, null=True, verbose_name=_('Public Mail: You can add a public email to your profile!'))
 	privacy = models.CharField(max_length=1, choices=PRIVACY_CHOICES, verbose_name=_('Choose who can see your profile and favorites.'))

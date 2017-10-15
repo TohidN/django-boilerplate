@@ -52,8 +52,10 @@
 							<b class="caret"></b>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-nav-dropdown">
-							<div class="test">
-								<img src="{% logged_in_user_avatar %}" class="rounded-circle mx-auto d-flex nav-avatar ">
+							<div class="nav-user-avatar-username-container">
+								{% if logged_in_user_avatar %}
+									<img src="{% logged_in_user_avatar %}" class="rounded-circle mx-auto d-flex nav-avatar">
+								{% endif %}
 								<h5 class="dropdown-item nav-avatar-username">@{{ request.user.username }}</h5>
 							</div>
 							{% if request.user.is_superuser %}
