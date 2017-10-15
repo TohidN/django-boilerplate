@@ -35,7 +35,7 @@ def get_gravatar(email, size=80, default='identicon'):
 	:return: The URI pointing to the Gravatar.
 	"""
 	# base_url = 'https://secure.gravatar.com/avatar/'
-	base_url = '//www.gravatar.com/avatar/'
+	base_url = 'https://www.gravatar.com/avatar/'
 	gravatar_url = '{0}{1}'.format(base_url, md5(email.lower().encode('utf-8')).hexdigest())
 
 	gravatar_url += urlencode({
