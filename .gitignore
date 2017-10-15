@@ -5,3 +5,6 @@
 /project/templatetags/__pycache__
 /*.sqlite3
 /*.bat
+/account/migrations
+/project/management/__pycache__
+/project/management/commands/__pycache__
