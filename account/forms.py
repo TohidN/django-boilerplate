@@ -107,7 +107,7 @@ class EditAccountForm(forms.ModelForm):
 	def __init__(self, *args, **kw):
 		super(EditAccountForm, self).__init__(*args, **kw)
 		self.fields['password'].widget = forms.PasswordInput()
-		self.fields['password'].required=False
+		self.fields['password'].required = False
 
 		self.fields['username'].widget.attrs = {'before_addon': _("fa fa-user"),}
 		self.fields['email'].widget.attrs = {'before_addon': _("fa fa-envelope-o"),}
@@ -147,14 +147,20 @@ class EditAccountForm(forms.ModelForm):
 			return email
 		raise forms.ValidationError('This email address is already in use. Please supply a different email address.')
 
+	def clean_password(self):
+		password = self.cleaned_data.get('password')
+		if 8 > len(password) > 0:
+			raise forms.ValidationError('This Password is too short. it must be at least 8 characters.')
+		else:
+			return password
+
 	def save(self, commit=True):
 		# Ignore Password field in this form
-		EditAccountForm.Meta.fields = tuple(x for x in EditAccountForm.Meta.fields if x is not 'password')
-
+		EditAccountForm.Meta.fields = tuple(x for x in EditAccountForm.Meta.fields if x != 'password')
 		user = super(EditAccountForm, self).save(commit=False)
 		user.username = self.cleaned_data['username']
 		user.email = self.cleaned_data['email']
-		if self.cleaned_data['password']:
+		if self.cleaned_data['password'] and len(self.cleaned_data['password']):
 			user.set_password(self.cleaned_data['password'])
 		if commit:
 			user.save()
