@@ -4,3 +4,4 @@
 /project/__pycache__
 /project/templatetags/__pycache__
 /*.sqlite3
+/*.bat
