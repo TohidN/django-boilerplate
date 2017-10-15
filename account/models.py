@@ -57,7 +57,7 @@ class AccountSignup(models.Model):
 		
 		:param email: The new email address that the user wants to use.
 		"""
-		from recommender.modules.functions import generate_sha1
+		from .modules.functions import generate_sha1
 		self.email_unconfirmed = email
 		salt, hash = generate_sha1(self.user.username)
 		self.email_confirmation_key = hash
