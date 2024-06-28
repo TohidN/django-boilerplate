@@ -1,15 +1,12 @@
-{% extends "base.html" %}
+{% extends base_template %}
 {% load static %}
 {% load i18n %}
 
-{% block header %}
-<link href="{% static 'css/profile.css' %}" rel="stylesheet">
-{% endblock %}
-
 {% block title %}{{ profile.user.username }} - {% trans "Profile" %}{% endblock %}
+
 {% block content %}
 <main class="container profile">
-    <div class="row">
+	<div class="row">
 		<div class="col-md-3 profile-sidebar-container">
 			{% include "profile-sidebar.html" %}
 		</div>

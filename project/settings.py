@@ -139,7 +139,8 @@ SITE_ID = 2
 
 # Email options
 EMAIL_FORMAT_HTML = True  # if false plain text emails will be sent
-
+SITE_URL = "http://127.0.0.1:8000/" # used in generating site's url in emails
+DEFAULT_FROM_EMAIL = "no-reply@site.com"
 
 if DEBUG:
 	EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'

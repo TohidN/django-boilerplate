@@ -1,4 +1,4 @@
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 # Coutries: ISO
 # Languages: IANA Language Subtag Registry
@@ -5859,7 +5859,6 @@ LANGUAGES = (
     ("pyx", _("Pyu")),
     ("pyy", _("Pyen")),
     ("pzn", _("Para Naga")),
-    ("qaa..qtz", _("Private use")),
     ("qua", _("Quapaw")),
     ("qub", _("Huallaga Huánuco Quechua")),
     ("quc", _("K'iche'")),
